@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
+import { useAuth } from '../context/AuthContext';
+
+const { login } = useAuth();
+login(username);
+navigation.replace('Home');
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
