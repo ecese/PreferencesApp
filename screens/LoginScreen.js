@@ -2,16 +2,13 @@ import { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 
-const { login } = useAuth();
-login(username);
-navigation.replace('Home');
-
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
+  const { login } = useAuth();
   const [username, setUsername] = useState('');
 
   const handleLogin = () => {
     if (!username.trim()) return;
-    navigation.replace('Home', { username });
+    login(username); // ✅ SADECE STATE DEĞİŞİYOR
   };
 
   return (
